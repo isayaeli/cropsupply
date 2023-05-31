@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+<div class="page-contain">
+
+    <!-- Main content -->
+    <div id="main-content" class="main-content">
+
+        <!--Block 01: Main Slide-->
+        <div class="main-slide block-slider nav-change">
+            <ul class="biolife-carousel" data-slick='{"arrows": true, "dots": false, "slidesMargin": 0, "slidesToShow": 1, "infinite": false, "speed": 800}' >
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-01"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-02"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-01"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-02"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-01"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout02 slide_animation type_02">
+                        <div class="media background-geen-02"></div>
+                        <div class="text-content">
+                            <i class="first-line">Pomegranate</i>
+                            <h3 class="second-line">Vegetables 100% Organic</h3>
+                            <p class="third-line">A blend of freshly squeezed green apple & fruits</p>
+                            <p class="buttons">
+                                <a href="#" style="background-color: #fc9003;" class="btn btn-bold">Shop now</a>
+                                <a href="#" style="border-color: #fc9003;" class="btn btn-thin">View lookbook</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+        
+        </div>
+
+       
+
+        <!--Block 03: Product Tabs-->
+        <div class="product-tab z-index-20 sm-margin-top-193px xs-margin-top-30px">
+            <div class="container">
+                <div class="biolife-title-box mb-3">
+                    <span class="subtitle">All the best item for You</span>
+                    <h3 class="main-title">Related Products</h3>
+                </div>
+                <div class="biolife-tab biolife-tab-contain sm-margin-top-34px">
+                    <div class="tab-content">
+                        <div id="tab01_1st" class="tab-contain active">
+                            <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
+                               {% for data in products %}
+                                <li class="product-item">
+                                    <div class="contain-product layout-default">
+                                        <div class="product-thumb">
+                                            <a href="{% url 'details' data.id %}" class="link-to-product">
+                                                <img src="{{ data.image.url }}" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                            </a>
+                                            <!-- <a class="lookup" data-toggle="modal" data-target="#more{{data.id}}" ><i class="fa fa-long-arrow-right"></i></a> -->
+                                        </div>
+                                        <div class="info">
+                                            <!-- <b class="categories">Vegetables</b> -->
+                                            <h4 class="product-title"><a href="{% url 'details' data.id %}" class="pr-name">{{ data.title }}</a></h4>
+                                            <div class="price ">
+                                                {% if data.discount_price %}
+                                                <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.discount_price }}</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></del>
+                                                {% else %}
+                                                    <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></ins>
+                                                {% endif %}
+                                                
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <p class="message">All products are carefully selected to ensure food safety.</p>
+                                                <div class="buttons">
+                                                    <!-- <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a> -->
+                                                    {% if user.is_authenticated %}
+                                                    <form method="post" action="{% url 'add_to_cart' %}" >
+                                                        {% csrf_token %}
+                                                        <button id="add" value="{{data.id}}" style="background-color: #fc9003; width: 100%;" type="submit" class="btn add-to-cart-btn btn-bold">add to cart</button>
+                                                    </form>
+                                                    {% else %}
+                                                    <button style="background-color: #fc9003; width: 100%;" type="submit" class="btn add-to-cart-btn2 add-to-cart-btn btn-bold">add to cart</button>
+                                                    {% endif %}>
+                                                    <!-- <a data-toggle="modal" data-target="#more{{data.id}}" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+
+
+
+        <!--Block 06: Products-->
+        <div class="Product-box sm-margin-top-96px mb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 col-sm-6">
+                        <div class="advance-product-box">
+                            <div class="biolife-title-box bold-style biolife-title-box__bold-style">
+                                <h3 class="title">Deals of the day</h3>
+                            </div>
+                            <ul class="products biolife-carousel nav-top-right nav-none-on-mobile" data-slick='{"arrows":true, "dots":false, "infinite":false, "speed":400, "slidesMargin":30, "slidesToShow":1}'>
+                                {% for data in deals %}
+                                <li class="product-item">
+                                    <div class="contain-product deal-layout contain-product__deal-layout">
+                                        <div class="product-thumb">
+                                            <a href="{% url 'details' data.id %}" class="link-to-product">
+                                                <img src="{{data.image.url}}" alt="dd" width="330" height="330" class="product-thumnail">
+                                            </a>
+                                            <div class="labels">
+                                                <span class="sale-label">-50%</span>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="biolife-countdown" data-datetime="2020-01-18 00:00 +00:00"></div>
+                                            <!-- <b class="categories">Fresh Fruit</b> -->
+                                            <h4 class="product-title"><a href="#" class="pr-name">{{data.title}}</a></h4>
+                                            <div class="price ">
+                                                {% if data.discount_price %}
+                                                <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.discount_price }}</span></del>
+                                                {% else %}
+                                                    <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></ins>
+                                                {% endif %}
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <!-- <p class="message">All products are carefully selected to ensure food safety.</p> -->
+                                                <div class="buttons">
+                                                    {% if user.is_authenticated %}
+                                                    <form method="post" action="{% url 'add_to_cart' %}" >
+                                                        {% csrf_token %}
+                                                        <button id="add" value="{{data.id}}" style="background-color: #fc9003; width: 100%;" type="submit" class="btn add-to-cart-btn btn-bold">add to cart</button>
+                                                    </form>
+                                                    {% else %}
+                                                    <button style="background-color: #fc9003; width: 100%;" type="submit" class="btn add-to-cart-btn2 add-to-cart-btn btn-bold">add to cart</button>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-sm-6">
+                        <div class="advance-product-box">
+                            <div class="biolife-title-box bold-style biolife-title-box__bold-style">
+                                <h3 class="title">Top Rated Products</h3>
+                            </div>
+                            <ul class="products biolife-carousel nav-center-03 nav-none-on-mobile row-space-29px" data-slick='{"rows":2,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":2,"responsive":[{"breakpoint":1200,"settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":992, "settings":{ "rows":2, "slidesToShow": 1}},{"breakpoint":768, "settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":500, "settings":{ "rows":2, "slidesToShow": 1}}]}'>
+                            {% for data in products %}
+                                <li class="product-item">
+                                    <div class="contain-product right-info-layout contain-product__right-info-layout">
+                                        <div class="product-thumb">
+                                            <a href="{% url 'details' data.id %}" class="link-to-product">
+                                                <img src="{{data.image.url}}" alt="dd" width="270" height="270" class="product-thumnail">
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">{{data.details|truncatechars:30}}</b>
+                                            <h4 class="product-title"><a href="{% url 'details' data.id %}" class="pr-name">{{ data.title }}</a></h4>
+                                            <div class="price ">
+                                                {% if data.discount_price %}
+                                                <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.discount_price }}</span></del>
+                                                {% else %}
+                                                    <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.price }}</span></ins>
+                                                {% endif %}
+                                            </div>
+                                            <div class="rating">
+                                                <p class="star-rating"><span class="width-80percent"></span></p>
+                                                <span class="review-count">(05 Reviews)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

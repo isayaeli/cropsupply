@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load cart_template_tags%}
+{% block contents %}
+    <div class="hero-section hero-background">
+        <h1 class="page-title">Order Checkout</h1>
+    </div>
+
+    <!--Navigation section-->
+    <div class="container">
+        <nav class="biolife-nav">
+            <ul>
+                <li class="nav-item"><a href="{% url 'home' %}" class="permal-link">Home</a></li>
+                <li class="nav-item"><span class="current-page">Order Checkout</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page-contain checkout">
+
+        <!-- Main content -->
+        <div id="main-content" class="main-content">
+            <div class="container sm-margin-top-37px">
+                <div class="row">
+
+                    <!--checkout progress box-->
+                    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                        <div class="checkout-progress-wrap">
+                            <ul class="steps">
+                                <li class="step 1st">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box"><span class="number">1</span>Customer</h3>
+                                        <div class="box-content">
+                                            <p class="txt-desc">Checking out as a <a class="pmlink" href="#">Guest?</a> You’ll be able to save your details to create an account with us later.</p>
+                                            <div class="login-on-checkout">
+                                                <form action="{% url 'checkout' %}" name="frm-login" method="post">
+                                                    {% csrf_token %}
+                                                    <p class="form-row">
+                                                       <p class="col-md-6">
+                                                        <label for="input_email">Address</label>
+                                                        <input type="text" name="address" id=""  >
+                                                       </p>
+                                                       <p class="col-md-6">
+                                                        <label for="input_email">Second Address</label>
+                                                        <input type="text" name="second_address" id="">
+                                                       </p>
+                                                    </p>
+
+                                                        <p class="form-row">
+                                                            <p class="col-md-6">
+                                                            <label for="input_email">Phone</label>
+                                                            <input type="text" name="phone" id=""  >
+                                                            </p>
+                                                            <p class="col-md-6">
+                                                            <label for="input_email">Email</label>
+                                                            <input type="text" name="email" id="">
+                                                            </p>
+                                                        </p>
+                                                        <p class="form-row">
+                                                            <p class="col-md-6">
+                                                                <label for="">Country</label>
+                                                                <input type="text" name="country">
+                                                            </p>
+                                                            <p class="col-md-6">
+                                                                <label for="input_email">Zip Code</label>
+                                                                <input type="text" name="zip_code" id="">
+                                                            </p>
+                                                        </p>
+                                                        <p class="form-row">
+                                                            <div class="col-md-12">
+                                                                <label for="">Payment Method</label>
+                                                                <input required style="margin-left: 20px;" type="radio" name="payment" value="S"> <b>SWAHILIES PAY</b>
+                                                                
+                                                                <input style="margin-left: 40px;" type="radio" name="payment" value="C"> <b>CASH ON DELIVERLY</b>
+                                                            </div>
+                                                            
+                                                        </p>
+
+
+                                                    <p class="form-row">
+                                                        <p class="msg ml-2 rounded-pill"><button type="submit" class="btn btn-warning" >Continue To Payment</button></p>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- <li class="step 2nd">
+                                    <div class="checkout-act"><h3 class="title-box"><span class="number">2</span>Shipping</h3></div>
+                                </li>
+                                <li class="step 3rd">
+                                    <div class="checkout-act"><h3 class="title-box"><span class="number">3</span>Billing</h3></div>
+                                </li>
+                                <li class="step 4th">
+                                    <div class="checkout-act"><h3 class="title-box"><span class="number">4</span>Payment</h3></div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--Order Summary-->
+                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 sm-padding-top-48px sm-margin-bottom-0 xs-margin-bottom-15px">
+                        <div class="order-summary sm-margin-bottom-80px">
+                            <div class="title-block">
+                                <h3 class="title">Order Summary</h3>
+                                <a href="{% url 'cart' %}" class="link-forward">Edit cart</a>
+                            </div>
+                            <div class="cart-list-box short-type">
+                                <span class="number">2 items</span>
+                                <ul class="cart-list">
+                                    {% for data in cart.items.all  %}
+                                        <li class="cart-elem">
+                                            <div class="cart-item">
+                                                <div class="product-thumb">
+                                                    <a class="prd-thumb" href="#">
+                                                        <figure><img src="{{data.product.image.url}}" width="113" height="113" alt="shop-cart" ></figure>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <span class="txt-quantity">{{data.quantity}}X</span>
+                                                    <a href="#" class="pr-name">{{data.product.quantity}}</a>
+                                                </div>
+                                                <div class="price price-contain">
+                                                    {% if data.product.discount_price %}
+                                                        <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.product.price }}</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.product.discount_price }}</span></del>
+                                                    {% else %}
+                                                        <ins><span class="price-amount"><span class="currencySymbol">Tsh</span> {{ data.product.price }}</span></ins>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                        
+                                </ul>
+                                <ul class="subtotal">
+                                    <!-- <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Subtotal</b>
+                                            <span class="stt-price">£170.00</span>
+                                        </div>
+                                    </li> -->
+                                    <!-- <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Shipping</b>
+                                            <span class="stt-price">£20.00</span>
+                                        </div>
+                                    </li> -->
+                                    <!-- <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Tax</b>
+                                            <span class="stt-price">£0.00</span>
+                                        </div>
+                                    </li> -->
+                                    
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">total:</b>
+                                            <span class="stt-price">Tsh {{cart.get_line_total}}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock contents %}

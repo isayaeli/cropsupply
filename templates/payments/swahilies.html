@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load cart_template_tags%}
+{% block contents %}
+    <!--Hero Section-->
+    <div class="hero-section hero-background">
+        <h1 class="page-title">Swahilies Pay</h1>
+    </div>
+
+    <!--Navigation section-->
+    <div class="container">
+        <nav class="biolife-nav">
+            <ul>
+                <li class="nav-item"><a href="index-2.html" class="permal-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="permal-link">Natural Organic</a></li>
+                <li class="nav-item"><span class="current-page">Fresh Fruit</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page-contain single-product">
+        <div class="container">
+
+            <!-- Main content -->
+            <div id="main-content" class="main-content">
+                
+                <!-- summary info -->
+                <div class="sumary-product single-layout">
+                
+                    <div class="action-form" style="width: 50%;">
+                        <div class="buttons">
+                            <a href="#" class="btn add-to-cart-btn">Pay Tsh {{cart.get_line_total}}</a>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+
+
+                <div style="height: 200px;" ></div>
+
+  
+
+           
+                
+            </div>
+        </div>
+    </div>
+{% endblock contents %}
+
+{% block footer %}
+{% endblock footer %}
